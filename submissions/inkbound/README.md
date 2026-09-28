@@ -41,6 +41,15 @@ https://badakkakitiga.github.io/friendsdk/
 
 Requires a browser wallet on **Robinhood mainnet (chain 4663)** holding a hardwired Generations NFT (generation ≥ 1). No RF funding, private key or transaction signature is needed for the preview.
 
+**Public RPC note.** The stock CLI runtime discovers owned Friends with a single
+`eth_getLogs` over the whole chain history, and the default public Robinhood RPC
+refuses any span wider than 10,000,000 blocks while the chain is already past
+75,000,000. Discovery therefore fails on the default configuration before it can
+return anything. This preview reads the same two owner-filtered queries in
+bounded block windows instead, so the stock runtime works on the free public RPC:
+7 NFTs on the reference wallet resolve to 6 eligible Friends in ~1.4 s. The fix is
+proposed upstream in [spokesz/friendsdk#11](https://github.com/spokesz/friendsdk/pull/11).
+
 **How do you play?**
 
 - Walk controls are not needed: the Friend runs automatically down the track. Press `Space` / `E`, or tap **Ignite sigil**, to burn a sealed sigil.
