@@ -47,8 +47,9 @@ refuses any span wider than 10,000,000 blocks while the chain is already past
 75,000,000. Discovery therefore fails on the default configuration before it can
 return anything. This preview reads the same two owner-filtered queries in
 bounded block windows instead, so the stock runtime works on the free public RPC:
-7 NFTs on the reference wallet resolve to 6 eligible Friends in ~1.4 s. The fix is
-proposed upstream in [spokesz/friendsdk#11](https://github.com/spokesz/friendsdk/pull/11).
+7 NFTs on the reference wallet resolve to 6 eligible Friends in ~1.4 s. Upstream fixed it in
+[spokesz/friendsdk#10](https://github.com/spokesz/friendsdk/pull/10), and this preview is built on
+that revision.
 
 **How do you play?**
 
